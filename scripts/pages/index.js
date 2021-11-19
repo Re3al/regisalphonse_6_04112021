@@ -63,13 +63,26 @@
     }
 
     async function displayData(photographers) {
+        //recupere la section du DOM contenant les photographes
         const photographersSection = document.querySelector(".photographer_section");
 
         photographers.forEach((photographer) => {
             const photographerModel = photographerFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
+
+            //console.log(photographerModel.price);
+           /* photographerModel.filter(function(el){
+                if(el.price >100){return el}
+
+            });
+            */
         });
+              //console.log(photographers[0].tags.find(l => l =="travel"));
+              let filtered = "architecture";
+              const vals = photographers.filter(el => el.tags.find(l => l == filtered));
+              console.log(vals);
+        
     };
 
     async function init() {
@@ -80,3 +93,8 @@
     
     init();
     
+
+function filters(){
+    
+}
+
