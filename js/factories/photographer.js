@@ -20,6 +20,12 @@ function photographerFactory(data) {
         article.appendChild(h3);
         article.appendChild(taglineText);
         article.appendChild(priceText);
+
+        photographers.forEach((photographer) => {
+    
+        //document.querySelectorAll('article h2').href += `?id=${photographer.id}`;
+            
+            });
         return (article);
     }
     return { name, picture,city,tagline,price,tags, getUserCardDOM }

@@ -71,17 +71,12 @@
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
 
-            //console.log(photographerModel.price);
-           /* photographerModel.filter(function(el){
-                if(el.price >100){return el}
-
-            });
-            */
+     
         });
               //console.log(photographers[0].tags.find(l => l =="travel"));
-              let filtered = "architecture";
-              const vals = photographers.filter(el => el.tags.find(l => l == filtered));
-              console.log(vals);
+              
+
+              
         
     };
 
@@ -89,9 +84,31 @@
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
         displayData(photographers);
+
+        document.querySelectorAll(".home_filters a").forEach(tagDOM=>{
+            tagDOM.addEventListener("click", (e)=>{
+                let container = document.getElementsByClassName("photographer_section")[0];
+                  container.innerHTML = "";
+
+                 const currentDOMtag =  e.target.innerHTML;
+                 console.log(currentDOMtag);
+    
+                  const tag = "architecture";
+                  const vals = photographers.filter(el => el.tags.find(l => l == tag));
+                  console.log(vals);
+    
+                  displayData(vals);
+            });
+        });
+        let allDomArticleTitle =  document.querySelectorAll('article h2');
+
+        allDomArticleTitle.forEach(onTitleArticle=>{
+            onTitleArticle.href += `?id=${photographer.id}`;   
+        });        
     };
     
     init();
+
     
 
 function filters(){
