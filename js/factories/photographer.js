@@ -1,1 +1,0 @@
-//script servant à afficher les donnees du photographe (artwork)

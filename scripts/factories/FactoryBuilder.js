@@ -1,17 +1,14 @@
 class FactoryBuilder{
 
-    constructor(data, type)
+    create = (data) => 
     {
-        if(type === 'photographer')
+        if(data.type === 'photographer')
         {
             return new Photographer(data);
         }
-        else if(type === 'artwork')
+        else if(data.type === 'artwork')
         {
             return new ArtworK(data);
-        }
-        else{
-            throw "Undifined object";
         }
     }
 
@@ -38,8 +35,8 @@ class FactoryBuilder{
         //document.querySelectorAll('article h2').href += `?id=${photographer.id}`;
             
             });
-        return (oarticle);
+        return (article);
     }
 
 }
-module.exports = FactoryBuilder;
+//module.exports = FactoryBuilder;
