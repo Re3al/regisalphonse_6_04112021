@@ -21,3 +21,7 @@ function PhotographerFactory()
 
 const photographerFactory = new PhotographerFactory();
 const photographers = [];
+
+
+
+let tierce = 3;

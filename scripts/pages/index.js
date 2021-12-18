@@ -1,4 +1,5 @@
-    async function getPhotographers() {
+const FactoryBuilder = require('../factories/FactoryBuilder'); 
+ async function getPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
      /*   const photographers = [
             {
@@ -82,6 +83,9 @@
 
     async function init() {
         // Récupère les datas des photographes
+
+        let deux = 2;
+        console.log(deux);
         const { photographers } = await getPhotographers();
         displayData(photographers);
 
