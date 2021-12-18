@@ -1,6 +1,7 @@
 const Factory = new FactoryBuilder();
-//retourne tous les objets de photographes
  async function getPhotographers() {
+        // Penser à remplacer par les données récupérées dans le json
+
             return jsonData;
     }
 
