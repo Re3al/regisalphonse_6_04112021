@@ -1,4 +1,3 @@
-const Factory = new FactoryBuilder();
  async function getPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
 
@@ -8,6 +7,8 @@ const Factory = new FactoryBuilder();
     async function displayData(photographers) {
         //recupere la section du DOM contenant les photographes
         const photographersSection = document.querySelector(".photographer_section");
+        const factory = new FactoryBuilder();
+        
 
         photographers.forEach((photographer) => {
             const photographerModel = photographerFactory(photographer);
@@ -16,7 +17,7 @@ const Factory = new FactoryBuilder();
 
      
         });
-              //console.log(photographers[0].tags.find(l => l =="travel"));
+            //console.log(photographers[0].tags.find(l => l =="travel"));
               
 
               
@@ -39,18 +40,14 @@ const Factory = new FactoryBuilder();
                  const currentDOMtag =  e.target.innerHTML;
                  console.log(currentDOMtag);
     
-                  const tag = "architecture";
+                  const tag = e.target.dataset.filter;
+
                   const vals = photographers.filter(el => el.tags.find(l => l == tag));
                   console.log(vals);
     
                   displayData(vals);
             });
         });
-        let allDomArticleTitle =  document.querySelectorAll('article h2');
-
-        allDomArticleTitle.forEach(onTitleArticle=>{
-            onTitleArticle.href += `?id=${photographer.id}`;   
-        });        
     };
     
     init();

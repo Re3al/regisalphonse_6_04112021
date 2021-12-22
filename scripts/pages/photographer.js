@@ -2,15 +2,13 @@
 
 
 //recupere l'id de la page 
-const pageId = function(){
-    return new URL(location.href).searchParams.get('id');
-}
+const pageId = new URLSearchParams(window.location);
 
 
 async function init() {
     // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
-    displayData(photographers[pageId] );
+    
+    alert(pageId.get('id'));
 };
 
 init();

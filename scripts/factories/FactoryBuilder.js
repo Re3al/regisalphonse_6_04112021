@@ -2,14 +2,15 @@ class FactoryBuilder{
 
     create = (data) => 
     {
-        if(data.type === 'photographer')
+        if(data.type === 'photograph')
         {
-            return new Photographer(data);
+            const factoryProduct = new Photographer(data);
         }
         else if(data.type === 'artwork')
         {
-            return new ArtworK(data);
+            const factoryProduct =  new ArtworK(data);
         }
+        return factoryProduct;
     }
 
         getUserCardDOM() {
