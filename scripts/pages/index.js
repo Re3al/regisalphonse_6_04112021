@@ -8,8 +8,12 @@
     async function displayData(photographers) {
         //recupere la div contenant les cartes de photographe
         const photographersSection = document.querySelector(".photographer_section");
-        const { photographersData } = await getPhotographers();
-        const photographersObject = photographersData.map(element =>  new FactoryBuilder(element, "photographer"));
+        const photographersData = await getPhotographers();
+        console.log('=========');
+        console.log(photographersData.photographers);
+        console.log('=========');
+  
+        const photographersObject = photographersData.photographers.map(element =>  new FactoryBuilder(element, "photographer"));
 
         photographersObject.forEach((photographer) => {
             const templateCard = new CardDOM(photographer);

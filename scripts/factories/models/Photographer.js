@@ -3,10 +3,12 @@ class Photographer{
     {
         this._name = data.name;
         this._id = data.id;
-        this._image = data.image;
+        this._portrait = data.portrait;
         this._likes = data.likes;
         this._date = data.date;
-        this._tags = data.tags;
+        this._city = data.city;
+        this._contry = data.contry;
+        this._tagline = data.tagline;
         this._price = data.price;
 
     }
@@ -17,8 +19,8 @@ class Photographer{
     get id(){
         return this._id;
     }
-    get image(){
-        return this._image;
+    get portrait(){
+        return this._portrait;
     }
 
     get likes(){
@@ -27,8 +29,8 @@ class Photographer{
     get date(){
         return this._date;
     }
-    get tags(){
-        return this._tags;
+    get tagline(){
+        return this._tagline;
     }
     get price(){
         return this._price;
