@@ -1,18 +1,19 @@
  async function getPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
 
-            return jsonData;
+            return  jsonData;
     }
 
+    //recupere la section du DOM contenant les photographes
     async function displayData(photographers) {
-        //recupere la section du DOM contenant les photographes
+        //recupere la div contenant les cartes de photographe
         const photographersSection = document.querySelector(".photographer_section");
-        const factory = new FactoryBuilder();
-        
+        const { photographersData } = await getPhotographers();
+        const photographersObject = photographersData.map(element =>  new FactoryBuilder(element, "photographer"));
 
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
+        photographersObject.forEach((photographer) => {
+            const templateCard = new CardDOM(photographer);
+            const userCardDOM = templateCard.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
 
      
@@ -26,12 +27,10 @@
 
     async function init() {
         // Récupère les datas des photographes
-
-        let deux = 2;
-        console.log(deux);
         const { photographers } = await getPhotographers();
         displayData(photographers);
 
+        //filters
         document.querySelectorAll(".home_filters a").forEach(tagDOM=>{
             tagDOM.addEventListener("click", (e)=>{
                 let container = document.getElementsByClassName("photographer_section")[0];
@@ -51,10 +50,4 @@
     };
     
     init();
-
-    
-
-function filters(){
-    
-}
 

@@ -1,9 +1,11 @@
-function photographerFactory(data) {
-    const { name, portrait,city,tagline,price,id } = data;
+class CardDOM
+{
+
+    getUserCardDOM(data) {
+    //const { name, portrait,city,tagline,price,id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
-    function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
@@ -28,6 +30,6 @@ function photographerFactory(data) {
         '<a href="`?id=${photographer.id}`;">');*/        
         return (article);
     }
-    return { name, picture,city,tagline,price,id, getUserCardDOM }
-}
+    //return { name, picture,city,tagline,price,id, getUserCardDOM 
 
+}
