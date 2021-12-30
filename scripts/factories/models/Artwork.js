@@ -8,6 +8,7 @@ class Artwork{
         this._date = data.date;
         this._tags = data.tags;
         this._price = data.price;
+        this._portrait = data.portrait;
     }
     
     get name(){

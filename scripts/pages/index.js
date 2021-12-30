@@ -5,19 +5,20 @@
     }
 
     //recupere la section du DOM contenant les photographes
-    async function displayData(photographers) {
+    async function displayData() {
         //recupere la div contenant les cartes de photographe
         const photographersSection = document.querySelector(".photographer_section");
         const photographersData = await getPhotographers();
-        console.log('=========');
-        console.log(photographersData.photographers);
-        console.log('=========');
+
   
         const photographersObject = photographersData.photographers.map(element =>  new FactoryBuilder(element, "photographer"));
 
         photographersObject.forEach((photographer) => {
             const templateCard = new CardDOM(photographer);
-            const userCardDOM = templateCard.getUserCardDOM();
+            
+            const userCardDOM = templateCard.getUserCardDOM(photographer);
+            console.log('===');
+            console.log(templateCard.getUserCardDOM(photographer));
             photographersSection.appendChild(userCardDOM);
 
      
@@ -31,8 +32,7 @@
 
     async function init() {
         // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
+        displayData();
 
         //filters
         document.querySelectorAll(".home_filters a").forEach(tagDOM=>{

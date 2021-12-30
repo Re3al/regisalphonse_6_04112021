@@ -8,9 +8,14 @@ class FactoryBuilder{
         }
         else if(this.type === 'artwork')
         {
-            const factoryProduct =  new ArtworK(data);
+            return new Artwork(data);
         }
-        return new Artwork(data);
+        else
+        {
+            throw "Class non déninie";
+            //return new Photographer(data);
+        }
+        
 
     }
 }
