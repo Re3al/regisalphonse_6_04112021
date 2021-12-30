@@ -2,13 +2,17 @@ class FactoryBuilder{
 
     constructor(data,type)
     {
-        if(this.type === 'photographer')
+        if(type === 'photographer')
         {
             return new Photographer(data);
         }
-        else if(this.type === 'artwork')
+        else if(type === 'photoArtwork')
         {
-            return new Artwork(data);
+            return new PhotoArtwork(data);
+        }
+        else if(type === 'videoArtwork')
+        {
+            return new VideoArtwork(data);
         }
         else
         {

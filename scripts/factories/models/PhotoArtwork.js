@@ -1,14 +1,13 @@
-class Artwork{
+class PhotoArtwork{
     constructor(data)
     {
-        this._name = data.name;
         this._id = data.id;
+        this._photographerId = data.photographerId;
         this._image = data.image;
         this._likes = data.likes;
         this._date = data.date;
         this._tags = data.tags;
         this._price = data.price;
-        this._portrait = data.portrait;
     }
     
     get name(){
@@ -16,6 +15,9 @@ class Artwork{
     }
     get id(){
         return this._id;
+    }
+    get photographerId(){
+        return this._photographerId;
     }
     get image(){
         return this._image;
