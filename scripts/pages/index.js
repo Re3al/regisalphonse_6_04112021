@@ -39,9 +39,6 @@
             tagDOM.addEventListener("click", (e)=>{
                 let container = document.getElementsByClassName("photographer_section")[0];
                   container.innerHTML = "";
-
-                 const currentDOMtag =  e.target.innerHTML;
-                 console.log(currentDOMtag);
     
                   const tag = e.target.dataset.filter;
 

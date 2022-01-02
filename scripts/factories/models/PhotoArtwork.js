@@ -2,6 +2,7 @@ class PhotoArtwork{
     constructor(data)
     {
         this._id = data.id;
+        this._title = data.title;
         this._photographerId = data.photographerId;
         this._image = data.image;
         this._likes = data.likes;
