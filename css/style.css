@@ -44,7 +44,7 @@ h1 {
     font-size: 36px;
 }
 
-.photographer_section article img {
+.photographer_section article img, .photographer_section article video {
     height: 200px;
     width: 200px;
     clip-path: ellipse(93px 93px at 93px 100px);

@@ -77,15 +77,33 @@ constructor(user)
         '<a href="`?id=${photographer.id}`;">');*/        
         return (article);
     }
+    getMediatype()
+    {
+      if(data.hasOwnProperty('video'))
+      {
+        return `assets/photographers/${userId}/${data._video}`;
+      }
+      else if(data.hasOwnProperty('photo'))
+      {
+        return `assets/photographers/${userId}/${data._image}`;
+      }
+    }
     getMediaCardDOM(data) {
         //const { name, portrait,city,tagline,price,id } = data;
     
         const userId = this.getUser(data._photographerId);
         const picture = `assets/photographers/${userId}/${data._image}`;
+        if(data._video){
+          const video = `assets/photographers/${userId}/${data._video}`;
+        }
+        
     
             const article = document.createElement( 'article' );
             const img = document.createElement( 'img' );
-            img.setAttribute("src", picture)
+            const videotag = document.createElement( 'video' );
+            const videosource = document.createElement( 'source' );
+            img.setAttribute("src", picture);
+            videosource.setAttribute("src", picture);
             const h2 = document.createElement( 'h2' );
             const a = document.createElement( 'a' );
             a.setAttribute("href", "photographer.html?id=" + data._id); 
@@ -98,7 +116,10 @@ constructor(user)
             h3.textContent = data._city;
             taglineText.textContent = data._tags;
             priceText.textContent = data._price + "€";
+            article.classList.add("artist-post");
             article.appendChild(img);
+            article.appendChild(videotag);
+            videotag.appendChild(videosource);
             article.appendChild(h2);
             article.appendChild(h3);
             article.appendChild(taglineText);

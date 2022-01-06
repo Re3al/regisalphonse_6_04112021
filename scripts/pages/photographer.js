@@ -5,6 +5,7 @@
 const pageId = new URLSearchParams(window.location.search);
 const artistId = pageId.get('id');
 
+const photographerHeader = document.querySelector(".photograph-header");
 
 
 const mediasData = jsonData.media.filter((el)=>{
@@ -12,11 +13,24 @@ const mediasData = jsonData.media.filter((el)=>{
 })
 
 
+const currentPhotographer = jsonData.photographers.filter((el)=>{
+    return el.id == artistId;
+});
+console.log('========>');
+console.log(currentPhotographer);
+
+const currenttemplateCard = new CardDOM(currentPhotographer);
+ 
+const currentuserCardDOM = currenttemplateCard.getMediaCardDOM(currentPhotographer);
+
+photographerHeader.appendChild(currentuserCardDOM);
+
 
 //recupere la section du DOM contenant les photographes
 async function displayData() {
     //recupere la div contenant les cartes de photographe
     const photographersSection = document.querySelector(".all-posts");
+
 
    
 
@@ -29,13 +43,13 @@ async function displayData() {
     
     const videos = videoData.map(element =>  new FactoryBuilder(element, "videoArtwork"));
     const photos = photoData.map(element =>  new FactoryBuilder(element, "photoArtwork"));
-    console.log(photos);
+    
     medias = videos.concat(photos);
 
     
     medias.forEach((media) => {
         const templateCard = new CardDOM(media);
-        console.log(media);
+ 
         const userCardDOM = templateCard.getMediaCardDOM(media);
 
         photographersSection.appendChild(userCardDOM);
@@ -56,12 +70,10 @@ async function init() {
               container.innerHTML = "";
 
              const currentDOMtag =  e.target.innerHTML;
-             console.log(currentDOMtag);
 
               const tag = e.target.dataset.filter;
 
               const vals = photographers.filter(el => el.tags.find(l => l == tag));
-              console.log(vals);
 
               displayData(vals);
         });

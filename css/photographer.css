@@ -19,6 +19,7 @@
     display: flex;
     justify-content: space-around;
     color: #901C1C;
+    flex-wrap: wrap;
 }
 .artist-post img
 {
