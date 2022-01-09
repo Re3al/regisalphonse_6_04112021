@@ -13,21 +13,31 @@ const mediasData = jsonData.media.filter((el)=>{
 })
 
 
-const currentPhotographer = jsonData.photographers.filter((el)=>{
+const currentPhotographers = jsonData.photographers.filter((el)=>{
     return el.id == artistId;
 });
-console.log('========>');
-console.log(currentPhotographer);
 
-const currenttemplateCard = new CardDOM(currentPhotographer);
- 
-const currentuserCardDOM = currenttemplateCard.getMediaCardDOM(currentPhotographer);
-
-photographerHeader.appendChild(currentuserCardDOM);
 
 
 //recupere la section du DOM contenant les photographes
 async function displayData() {
+
+
+
+    const currentPhotographer = currentPhotographers[0];
+
+    const currenttemplateCard = new CardDOM(currentPhotographer); 
+
+    currenttemplateCard.getCurrentUserCardDOM(currentPhotographer);
+
+
+
+//const currenttemplateCard = new CardDOM(currentPhotographer); 
+//const currentuserCardDOM = currenttemplateCard.getCurrentUserCardDOM(currentPhotographer);
+
+//photographerHeader.appendChild(currentuserCardDOM);
+
+
     //recupere la div contenant les cartes de photographe
     const photographersSection = document.querySelector(".all-posts");
 

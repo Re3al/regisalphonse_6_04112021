@@ -1,10 +1,7 @@
 class CardDOM
 {
 
-constructor(user)
-{
-    this.user = user;
-}
+
     
     getUser(idUser){
     
@@ -67,7 +64,7 @@ constructor(user)
         /*h2.textContent = name;*/
         h3.textContent = data._city;
         taglineText.textContent = data._tagline;
-        priceText.textContent = data._price + "€";
+        priceText.textContent = data._price + "€/jour";
         article.appendChild(img);
         article.appendChild(h2);
         article.appendChild(h3);
@@ -129,4 +126,35 @@ constructor(user)
             return (article);
         }
 
+
+        getCurrentUserCardDOM(data){
+          const div = document.createElement( 'div' );
+          const portrait = `assets/photographers/${data.portrait}`;
+          const imgTag = document.createElement( 'img' );
+          imgTag.setAttribute("src", portrait);
+          imgTag.classList.add("roundimage");
+          const nameTag = document.createElement( 'h2' );
+          const name = data.name;
+          nameTag.innerHTML = name;
+          const taglineTag = document.createElement( 'p' );
+          const tagline = data.tagline;
+          taglineTag.innerHTML = tagline;
+          const cityTag = document.createElement( 'h3' );
+          const button = document.createElement( 'button' );
+          button.setAttribute("onclick", "displayModal()");
+          button.innerHTML = "Contactez-moi";
+          button.classList.add('contact_button');
+          cityTag.textContent = data.city;
+          photographerHeader.appendChild(div);
+          div.appendChild(nameTag);
+          div.appendChild(cityTag);
+          div.appendChild(taglineTag);
+          photographerHeader.appendChild(button);
+          photographerHeader.appendChild(imgTag);
+                  }
+
 }
+
+
+
+

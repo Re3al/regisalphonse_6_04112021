@@ -13,7 +13,10 @@ header {
     align-items: center;
     height: 90px;
 }
-
+a:visited, a{
+    text-decoration: none;
+    color:inherit;
+}
 h1 {
     color: #901C1C;
     margin-right: 100px;
@@ -50,6 +53,12 @@ h1 {
     clip-path: ellipse(93px 93px at 93px 100px);
     object-fit: cover;
 }
+.roundimage {
+    height: 200px;
+    width: 41%;
+    clip-path: ellipse(80px 80px at 95px 100px);
+    object-fit: cover;
+}
 
 .home_filters
 {
@@ -71,4 +80,16 @@ h1 {
     text-decoration: none;
     font-size: 11px;
 }
-
+article h2, article h3, article p{
+    margin: 3px auto;
+}
+article h2{
+    font-weight: 100;
+}
+article h3{
+    color: #901C1C;
+    font-weight: 200;
+}
+article p:last-child{
+    color: #9d9c9c;
+}
