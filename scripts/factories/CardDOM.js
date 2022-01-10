@@ -121,6 +121,10 @@ class CardDOM
             article.appendChild(h3);
             article.appendChild(taglineText);
             article.appendChild(priceText);
+            let imgAricle = data.image;
+            console.log(article);
+            //article.sort((a,b)=>a-b)
+
             /*h2.insertAdjacentHTML('afterbegin',
             '<a href="`?id=${photographer.id}`;">');*/        
             return (article);

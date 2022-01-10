@@ -39,7 +39,16 @@
 				</form>
 			</div>
 		</div>
-    <p>Trier par</p>
+    <div class="sorting">
+      <label for="sorting-select">Trier par:</label>
+
+      <select name="pets" id="sorting-select">
+          <option value="popularite">Popularité</option>
+          <option value="date">Date</option>
+          <option value="Titre">Titre</option>
+      </select>
+    </div>
+
     <section class="all-posts">
       <!--
       <article class="artist-post">
