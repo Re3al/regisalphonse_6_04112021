@@ -122,7 +122,6 @@ class CardDOM
             article.appendChild(taglineText);
             article.appendChild(priceText);
             let imgAricle = data.image;
-            console.log(article);
             //article.sort((a,b)=>a-b)
 
             /*h2.insertAdjacentHTML('afterbegin',

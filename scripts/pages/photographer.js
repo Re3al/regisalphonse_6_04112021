@@ -55,7 +55,24 @@ async function displayData() {
     const photos = photoData.map(element =>  new FactoryBuilder(element, "photoArtwork"));
     
     medias = videos.concat(photos);
+    let desc = false;
 
+    function sortArrayBy(array, sort,desc)
+    {
+        array.sort(function (a,b) {
+            if(a[sort] < b[sort]) return -1;
+    
+
+            if(a[sort] > b[sort]) return 1;
+            return 0;
+            
+        });
+        if(desc) array.reverse();
+        return array;
+    }
+    console.log(sortArrayBy(medias,'_title',desc));
+    //console.log("=======");
+    //console.log(arrays);
     
     medias.forEach((media) => {
         const templateCard = new CardDOM(media);
@@ -74,15 +91,12 @@ async function init() {
     // Récupère les datas des photographes
     displayData();
     //tri des medias
-    medias.forEach((el)=>{
-        console.log(el._title);
-    })
     //recuperer les articles
     let articles = document.getElementsByClassName('artist-post');
     //recuperer le click du selcect 
     let sortingSelect = document.querySelector('#sorting-select');
     sortingSelect.addEventListener("click",(e)=>{
-    console.log(e.target.value);
+    //console.log(e.target.value);
     //conditions
 
     //trier les articles en fonction du nom de l'image
