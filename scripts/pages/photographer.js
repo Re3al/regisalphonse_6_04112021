@@ -57,6 +57,7 @@ async function displayData() {
     medias = videos.concat(photos);
     let desc = false;
 
+
     function sortArrayBy(array, sort,desc)
     {
         array.sort(function (a,b) {
@@ -70,11 +71,21 @@ async function displayData() {
         if(desc) array.reverse();
         return array;
     }
-    console.log(sortArrayBy(medias,'_title',desc));
+   // console.log(sortArrayBy(medias,'_title',desc));
     //console.log("=======");
     //console.log(arrays);
     
+    let sortingSelect = document.querySelector('#test');
+    sortingSelect.addEventListener("click",(e)=>{
+    //conditionsm
+    sortArrayBy(medias,'_title',desc);
+    console.log(medias)
+    return medias;
+    });
+    console.log(medias)
+    
     medias.forEach((media) => {
+        console.log(media)
         const templateCard = new CardDOM(media);
  
         const userCardDOM = templateCard.getMediaCardDOM(media);
@@ -94,14 +105,7 @@ async function init() {
     //recuperer les articles
     let articles = document.getElementsByClassName('artist-post');
     //recuperer le click du selcect 
-    let sortingSelect = document.querySelector('#sorting-select');
-    sortingSelect.addEventListener("click",(e)=>{
-    //console.log(e.target.value);
-    //conditions
 
-    //trier les articles en fonction du nom de l'image
-
-    });
 
 
 
