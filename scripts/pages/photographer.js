@@ -76,7 +76,7 @@ async function displayData() {
     //console.log(arrays);
     
     let sortingSelect = document.querySelector('#test');
-    sortingSelect.addEventListener("click",(e)=>{
+    sortingSelect.addEventListener("change",(e)=>{
     //conditionsm
     sortArrayBy(medias,'_title',desc);
     console.log(medias)
