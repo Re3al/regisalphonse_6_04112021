@@ -149,11 +149,11 @@ sortingSelect.addEventListener("click",(e)=>{
     console.log('supp')
     
 //conditions
-const sortedMedias = sortArrayBy(medias,'_title',desc);
+const medias = sortArrayBy(medias,'_title',desc);
 console.log("clicked")
 console.log(sortedMedias);
 medias.innerHTML = "";
-displayData(sortedMedias);
+displayData(medias);
 });
 }
 
