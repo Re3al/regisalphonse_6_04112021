@@ -71,21 +71,14 @@ async function displayData() {
         if(desc) array.reverse();
         return array;
     }
-   // console.log(sortArrayBy(medias,'_title',desc));
-    //console.log("=======");
-    //console.log(arrays);
+
+
     
-    let sortingSelect = document.querySelector('#test');
-    sortingSelect.addEventListener("change",(e)=>{
-    //conditionsm
-    sortArrayBy(medias,'_title',desc);
-    console.log(medias)
-    return medias;
-    });
-    console.log(medias)
+ 
     
+  
     medias.forEach((media) => {
-        console.log(media)
+        //console.log(media)
         const templateCard = new CardDOM(media);
  
         const userCardDOM = templateCard.getMediaCardDOM(media);
@@ -128,8 +121,41 @@ async function init() {
               displayData(vals);
         });
     });
-};
+    //filters of projects
+ 
+
+let desc = false;
+
+
+function sortArrayBy(array, sort,desc)
+{
+    array.sort(function (a,b) {
+        if(a[sort] < b[sort]) return -1;
+
+
+        if(a[sort] > b[sort]) return 1;
+        return 0;
+        
+    });
+    if(desc) array.reverse();
+    return array;
+}
+const sortedMedias = "";
+
+let sortingSelect = document.querySelector('#test');
+sortingSelect.addEventListener("click",(e)=>{
+    const allPosts = document.getElementsByClassName('all-posts');
+    allPosts[0].innerHTML = "";
+    console.log('supp')
+    
+//conditions
+const sortedMedias = sortArrayBy(medias,'_title',desc);
+console.log("clicked")
+console.log(sortedMedias);
+medias.innerHTML = "";
+displayData(sortedMedias);
+});
+}
 
 init();
-
 
