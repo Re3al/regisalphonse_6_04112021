@@ -9,9 +9,7 @@ class VideoArtwork{
         this._date = data.date;
         this._tags = data.tags;
         this._price = data.price;
-
     }
-
     get name(){
         return this._name;
     }
@@ -33,6 +31,9 @@ class VideoArtwork{
     }
     get price(){
         return this._price;
+    }
+    get video(){
+        return this._video;
     }
 
 }

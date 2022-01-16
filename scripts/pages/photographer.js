@@ -37,16 +37,18 @@ async function displayData(data) {
     }
     else{
         mediasData.filter((el)=>{
-             if(el.hasOwnProperty('image'))
-             {
-                return medias = mediasData.map(element =>  new FactoryBuilder(element, "photoArtwork"));
-             }
-             else if(el.hasOwnProperty('video'))
+           
+              if(el.hasOwnProperty('video'))
              {
                 return medias = mediasData.map(element =>  new FactoryBuilder(element, "videoArtwork"));
              }
+             else if(el.hasOwnProperty('image'))
+             {
+                return medias = mediasData.map(element =>  new FactoryBuilder(element, "photoArtwork"));
+             }
            });
-          
+
+           
     }
 
     let desc = false;
@@ -54,21 +56,15 @@ async function displayData(data) {
     {
         array.sort(function (a,b) {
             if(a[sort] < b[sort]) return -1;
-    
-
             if(a[sort] > b[sort]) return 1;
             return 0;
-            
         });
         if(desc) array.reverse();
         return array;
     }
     medias.forEach((media) => {
-        //console.log(media)
         const templateCard = new CardDOM(media);
- 
         const userCardDOM = templateCard.getMediaCardDOM(media);
-
         photographersSection.appendChild(userCardDOM); 
     });            
 };

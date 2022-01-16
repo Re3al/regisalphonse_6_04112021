@@ -46,8 +46,6 @@ class CardDOM
 
 
     getUserCardDOM(data) {
-    //const { name, portrait,city,tagline,price,id } = data;
-
     const picture = `assets/photographers/${data._portrait}`;
 
         const article = document.createElement( 'article' );
@@ -103,6 +101,7 @@ class CardDOM
         }
         if(data._video)
         {
+         
           
           const videotag = document.createElement( 'video' );
           const videosource = document.createElement( 'source' );
