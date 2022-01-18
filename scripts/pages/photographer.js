@@ -36,19 +36,18 @@ async function displayData(data) {
         medias = data;
     }
     else{
-        mediasData.filter((el)=>{
+        medias = mediasData.map((el)=>{
            
               if(el.hasOwnProperty('video'))
              {
-                return medias = mediasData.map(element =>  new FactoryBuilder(element, "videoArtwork"));
+                return  new FactoryBuilder(el, "videoArtwork");
              }
              else if(el.hasOwnProperty('image'))
              {
-                return medias = mediasData.map(element =>  new FactoryBuilder(element, "photoArtwork"));
+                return  new FactoryBuilder(el, "photoArtwork");
              }
            });
-
-           
+           console.log(medias)
     }
 
     let desc = false;
