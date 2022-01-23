@@ -86,7 +86,6 @@ class CardDOM
     
         const userId = this.getUser(data._photographerId);
         const picture = `assets/photographers/${userId}/${data._image}`;
-   
         const video = `assets/photographers/${userId}/${data._video}`;
         const article = document.createElement( 'article' );
 
@@ -104,6 +103,7 @@ class CardDOM
          
           
           const videotag = document.createElement( 'video' );
+          videotag.classList.add("video_artwork");
           const videosource = document.createElement( 'source' );
           videosource.setAttribute("src", video);
           article.appendChild(videotag);
