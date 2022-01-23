@@ -12,6 +12,7 @@ class LightBox{
     {
         const element = this.buildDOM(imageTag);
         document.body.appendChild(element);
+        this.closeModal()
     }
     buildDOM(url)
     {
@@ -24,13 +25,17 @@ class LightBox{
         <div>
         <img src="assets/photographers/Ellie Rose/Sport_Next_Hold.jpg" alt="">
         </div>
-        `
+        `;
+        dom.style.display = "block";
         return dom;
     }
     closeModal(){
-        const dom = document.createElement('div');
-        dom.document.addEventListener('click',()=>{
-                
+        const dom = document.querySelector('.lightboxModal');
+        const closeLightBox = document.querySelector('.lighbox_close');
+
+        closeLightBox.addEventListener('click',()=>{
+            dom.style.display = "none";
+
         })
     }
 }

@@ -131,3 +131,8 @@ select, option{
     overflow: auto;
     background-color: black;
 }
+
+.lightboxModal img{
+    width: 80vw;
+    height: 100%;
+}
