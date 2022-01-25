@@ -1,6 +1,8 @@
 //Mettre le code JavaScript lié à la page photographer.html
 
 
+
+
 //recupere l'id de la page 
 const pageId = new URLSearchParams(window.location.search);
 const artistId = pageId.get('id');
@@ -25,6 +27,11 @@ async function displayDataCurrentUser()
     const currenttemplateCard = new CardDOM(currentPhotographer); 
 
     currenttemplateCard.getCurrentUserCardDOM(currentPhotographer);
+
+
+    //modal de contact 
+let contactArtist = document.querySelector("header h2");
+contactArtist.innerHTML = "Contactez moi " + currentPhotographers[0].name;
 }
 async function displayData(data) {
     //recupere la div contenant les cartes de photographe

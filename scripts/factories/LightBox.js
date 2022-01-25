@@ -4,7 +4,7 @@ class LightBox{
         const images = anchors.map(anchor=>anchor.getAttribute('src'));
         anchors.forEach((element) =>{
             element.addEventListener('click', (e)=>{
-                new LightBox(e.target.currentSrc);
+                new LightBox(e.target.currentSrc, images);
                 console.log("clicked")
                 
             })
@@ -16,6 +16,7 @@ class LightBox{
         this.images = images;
         document.body.appendChild(this.element);
         this.closeModal();
+        this.imageTag = imageTag;
     }
  
     buildDOM(imageTag)
@@ -26,7 +27,7 @@ class LightBox{
         </button>
         <button class="lighbox_next">Suivant</button>
         <button class="lighbox_previous">Précédent</button>
-        <div>
+        <div class="lighbox_container">
         <img src="${imageTag}" alt="">
         </div>
         `;
@@ -34,6 +35,19 @@ class LightBox{
         dom.querySelector(".lighbox_next").addEventListener('click', this.next.bind(this));
         //dom.querySelector(".lighbox_previous").addEventListener('click', this.previous.bind(this.images));
         return dom;
+    }
+    loadImage(imageTag)
+    {
+        this.imageTag = imageTag;
+        const image = new Image();
+        const container = this.element.querySelector('.lighbox_container');
+        container.innerHTML = "";
+        image.onload = () =>
+        {
+            container.appendChild(image);
+            this.imageTag = imageTag;
+        }
+        image.scr=imageTag;
     }
     closeModal(){
         const dom = document.querySelector('.lightboxModal');
@@ -48,13 +62,14 @@ class LightBox{
 
         console.log("======")
         console.log(this.images);
-        const i = this.images.findIndex(image => image == 1);
+        const i = this.images.findIndex(image => image == this.imageTag);
+        
 
         if(i== this.images.length - 1){
             i = -1;
-
         }
-        return this.images[i+1];
+        this.loadImage(this.images[i+1])
+
     }
     previous(e){
 
