@@ -47,7 +47,6 @@ async function displayData(data) {
                 return  new FactoryBuilder(el, "photoArtwork");
              }
            });
-           console.log(medias)
     }
 
     let desc = false;
@@ -95,7 +94,7 @@ async function init() {
     let sortProperty = "";
 
     let sortingSelect = document.querySelector('#sorting-select');
-    sortingSelect.addEventListener("change",(e)=>{
+    sortingSelect.addEventListener("click",(e)=>{
             
         const allPosts = document.getElementsByClassName('all-posts');
         allPosts[0].innerHTML = "";   

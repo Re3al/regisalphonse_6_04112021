@@ -15,19 +15,13 @@
 
         photographersObject.forEach((photographer) => {
             const templateCard = new CardDOM(photographer);
-            
             const userCardDOM = templateCard.getUserCardDOM(photographer);
-            console.log('===');
-            console.log(templateCard.getUserCardDOM(photographer));
+ 
             photographersSection.appendChild(userCardDOM);
 
      
         });
             //console.log(photographers[0].tags.find(l => l =="travel"));
-              
-
-              
-        
     };
 
     async function init() {
@@ -42,9 +36,7 @@
     
                   const tag = e.target.dataset.filter;
 
-                  const vals = photographers.filter(el => el.tags.find(l => l == tag));
-                  console.log(vals);
-    
+                  const vals = photographers.filter(el => el.tags.find(l => l == tag));    
                   displayData(vals);
             });
         });

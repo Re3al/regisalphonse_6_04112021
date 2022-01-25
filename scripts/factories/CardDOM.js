@@ -53,6 +53,8 @@ class CardDOM
         img.setAttribute("src", picture)
         const h2 = document.createElement( 'h2' );
         const a = document.createElement( 'a' );
+        const divA = document.createElement( 'a' );
+        divA.setAttribute("href", "photographer.html?id=" + data._id); 
         a.setAttribute("href", "photographer.html?id=" + data._id); 
         a.innerHTML = data._name;     
         h2.appendChild(a);
@@ -63,11 +65,14 @@ class CardDOM
         h3.textContent = data._city;
         taglineText.textContent = data._tagline;
         priceText.textContent = data._price + "€/jour";
-        article.appendChild(img);
+        article.href= "photographer.html?id=" + data._id;
+        article.appendChild(divA);
+        divA.appendChild(img);
         article.appendChild(h2);
         article.appendChild(h3);
         article.appendChild(taglineText);
         article.appendChild(priceText);
+        
         
         return (article);
     }
