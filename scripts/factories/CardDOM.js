@@ -124,16 +124,17 @@ class CardDOM
         a.innerHTML = data._title;     
         h2.appendChild(a);
         const h3 = document.createElement( 'h3' );
-        const taglineText  = document.createElement( 'p' );
-        const priceText  = document.createElement( 'p' );
+        const likes  = document.createElement( 'p' );
+        let likesImg = document.createElement('img');
+        likesImg.src ="/assets/images/heart.svg"
+        likesImg.classList.add('artist-likes')
         h3.textContent = data._city;
-        taglineText.textContent = data._tags;
-        priceText.textContent = data._price + "€";
+        likes.textContent = data._likes;
         article.classList.add("artist-post");
         article.appendChild(h2);
         article.appendChild(h3);
-        article.appendChild(taglineText);
-        article.appendChild(priceText);
+        article.appendChild(likes);
+        likes.appendChild(likesImg);
 
       
 

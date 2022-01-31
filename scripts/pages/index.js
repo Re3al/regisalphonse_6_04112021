@@ -36,7 +36,7 @@
     
                   const tag = e.target.dataset.filter;
 
-                  const vals = photographers.filter(el => el.tags.find(l => l == tag));    
+                  const vals = photographers.filter(el => el.tag.find(l => l == tag));    
                   displayData(vals);
             });
         });

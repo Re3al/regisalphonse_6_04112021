@@ -46,7 +46,13 @@
     border-radius: 5px;
     cursor: pointer;
 }
-
+.artist-likes
+{
+    width: 13px!important;
+    height: auto!important;
+    padding-left: 5px;
+    color: #901C1C;
+}
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -100,3 +106,31 @@ form input, form textarea {
     border: none;
     border-radius: 5px;
 }
+.lighbox_next{
+    background: url('/assets/images/chevron-right-solid.svg') center center /100% 100%;
+    border: none;
+    width: 20px;
+    height: 36px;
+    color: transparent;
+    position: relative;
+    right: 15px;
+}
+.lighbox_previous{
+    background: url('/assets/images/chevron-left-solid.svg') center center /100% 100%;
+    border: none;
+    width: 20px;
+    height: 36px;
+    color: transparent;
+    position: relative;
+    right: 15px;
+}   
+.lighbox_close{
+    background: url('/assets/images/close.svg') center center /100% 100%;
+    border: none;
+    width: 20px;
+    height: 36px;
+    color: transparent;
+    position: relative;
+    left: 11px;
+    bottom: 42%;
+}   

@@ -1,16 +1,19 @@
-class LightBox{
+class LightBox {
     static init(){
         const anchors = Array.from(document.querySelectorAll(".artist-post img"));
         const images = anchors.map(anchor=>anchor.getAttribute('src'));
+        //initialiser l'id du media cliqué 
+        let imageId;
         anchors.forEach((element) =>{
             element.addEventListener('click', (e)=>{
-                new LightBox(e.target.currentSrc, images);
-                console.log("clicked")
+                let currentSrc = e.target.currentSrc.replace(window.location.origin + '/', '');
+                new LightBox(decodeURI(currentSrc), images,1);
+                console.log("clicked");
                 
             })
         })
     }
-    constructor(imageTag, images)
+    constructor(imageTag, images,id)
     {
         this.element = this.buildDOM(imageTag);
         this.images = images;
@@ -18,36 +21,40 @@ class LightBox{
         this.closeModal();
         this.imageTag = imageTag;
     }
- 
     buildDOM(imageTag)
     {
         const dom = document.createElement('div');
         dom.classList.add('lightboxModal');
-        dom.innerHTML = `<button class="lighbox_close">Fermer
-        </button>
-        <button class="lighbox_next">Suivant</button>
+        
+        dom.innerHTML = `
         <button class="lighbox_previous">Précédent</button>
         <div class="lighbox_container">
         <img src="${imageTag}" alt="">
+        <p>${medias[id]._title}</p>
         </div>
+        <button class="lighbox_close">Fermer</button>
+        <button class="lighbox_next">Suivant</button>
         `;
-        dom.style.display = "block";
+        dom.style.display = "flex";
+        console.log(medias)
         dom.querySelector(".lighbox_next").addEventListener('click', this.next.bind(this));
+        dom.querySelector(".lighbox_previous").addEventListener('click', this.previous.bind(this));
         //dom.querySelector(".lighbox_previous").addEventListener('click', this.previous.bind(this.images));
         return dom;
     }
     loadImage(imageTag)
     {
         this.imageTag = imageTag;
-        const image = new Image();
+        const image = document.createElement('img');
         const container = this.element.querySelector('.lighbox_container');
         container.innerHTML = "";
+        image.src=imageTag;
+        
         image.onload = () =>
-        {
-            container.appendChild(image);
+        {      
             this.imageTag = imageTag;
         }
-        image.scr=imageTag;
+        container.appendChild(image);
     }
     closeModal(){
         const dom = document.querySelector('.lightboxModal');
@@ -59,20 +66,20 @@ class LightBox{
         })
     }
     next(e){
-
-        console.log("======")
-        console.log(this.images);
-        const i = this.images.findIndex(image => image == this.imageTag);
-        
-
+        let i = this.images.findIndex(image => image == this.imageTag);
         if(i== this.images.length - 1){
             i = -1;
         }
         this.loadImage(this.images[i+1])
+        
 
     }
     previous(e){
-
+        let i = this.images.findIndex(image => image == this.imageTag);
+        if(i== 0){
+            i = this.images.length;
+        }
+        this.loadImage(this.images[i-1])
     }
 }
 
