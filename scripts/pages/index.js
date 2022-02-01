@@ -34,9 +34,9 @@
                 let container = document.getElementsByClassName("photographer_section")[0];
                   container.innerHTML = "";
     
-                  const tag = e.target.dataset.filter;
+                  const tag = e.target.innerHTML;
 
-                  const vals = photographers.filter(el => el.tag.find(l => l == tag));    
+                  const vals = photographersObject.filter(el => el.tag.find(l => l == tag));    
                   displayData(vals);
             });
         });
