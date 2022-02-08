@@ -1,6 +1,6 @@
 class LightBox {
     static init(){
-        const anchors = Array.from(document.querySelectorAll(".artist-post img"));
+        const anchors = Array.from(document.querySelectorAll(".artist-post .artist-thumbnail"));
         const images = anchors.map(anchor=>anchor.getAttribute('src'));
         //initialiser l'id du media cliqué 
         let imageId;
@@ -30,7 +30,7 @@ class LightBox {
         <button class="lighbox_previous">Précédent</button>
         <div class="lighbox_container">
         <img src="${imageTag}" alt="">
-        <p>${medias[id]._title}</p>
+        
         </div>
         <button class="lighbox_close">Fermer</button>
         <button class="lighbox_next">Suivant</button>

@@ -99,6 +99,7 @@ class CardDOM
           
           const img = document.createElement( 'img' );
           img.setAttribute("src", picture);
+          img.classList.add("artist-thumbnail");
             article.appendChild(img);
    
           let imgAricle = data.image;

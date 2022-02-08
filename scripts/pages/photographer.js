@@ -33,6 +33,25 @@ async function displayDataCurrentUser()
 let contactArtist = document.querySelector("header h2");
 contactArtist.innerHTML = "Contactez moi " + currentPhotographers[0].name;
 }
+async function displayCurrentDataSection()
+{
+    let allLikes = [];
+    mediasData.forEach((data)=>
+    {
+        
+        console.log(data)
+        allLikes.push(data.likes);
+    });
+
+    let dataSection = document.createElement('div');
+    dataSection.classList.add('datasection');
+    dataSection.innerHTML = `
+    <p>${allLikes}<img class="artist-likes" src="/assets/images/heart.svg""></p>
+    <p></p>
+    `;
+    document.body.appendChild(dataSection);
+    
+}
 async function displayData(data) {
     //recupere la div contenant les cartes de photographe
     const photographersSection = document.querySelector(".all-posts");
@@ -117,7 +136,10 @@ async function init() {
                 sortProperty = "_date";
         }
         displayData(sortArrayBy(medias,sortProperty,desc));
+        LightBox.init();
+        
     });
+    displayCurrentDataSection();
 }
 
 init();
