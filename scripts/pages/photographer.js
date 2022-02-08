@@ -35,19 +35,22 @@ contactArtist.innerHTML = "Contactez moi " + currentPhotographers[0].name;
 }
 async function displayCurrentDataSection()
 {
-    let allLikes = [];
+    let allLikesarray = [];
     mediasData.forEach((data)=>
     {
         
         console.log(data)
-        allLikes.push(data.likes);
+        allLikesarray.push(data.likes);
     });
-
+    let allLikes = allLikesarray.reduce((accumulator,currentValue)=>{
+        return accumulator + currentValue;
+    },0);
+    
     let dataSection = document.createElement('div');
     dataSection.classList.add('datasection');
     dataSection.innerHTML = `
     <p>${allLikes}<img class="artist-likes" src="/assets/images/heart.svg""></p>
-    <p></p>
+    <p>${currentPhotographers[0].price} €/ jour</p>
     `;
     document.body.appendChild(dataSection);
     

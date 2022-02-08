@@ -138,7 +138,8 @@ form input, form textarea {
     background-color: #DB8876;
     width: 200px;
     height: auto;
-    position:absolute;
+    position:fixed;
     bottom: 0;
     right: 20px;
+    display: flex;
 }
