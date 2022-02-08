@@ -13,6 +13,8 @@ class LightBox {
             })
         })
     }
+    //imageTag correspond à l'image courrante 
+    //images contient l'ensemble des images
     constructor(imageTag, images,id)
     {
         this.element = this.buildDOM(imageTag);
@@ -21,6 +23,13 @@ class LightBox {
         this.closeModal();
         this.imageTag = imageTag;
     }
+    getCurrentImage()
+    {   
+        this.imageTag = imageTag;
+        console.log(imageTag)
+        const currentImage = jsonData.media.filter((el)=>{el.title == 623534343 })[0]
+    }
+
     buildDOM(imageTag)
     {
         const dom = document.createElement('div');
@@ -30,6 +39,7 @@ class LightBox {
         <button class="lighbox_previous">Précédent</button>
         <div class="lighbox_container">
         <img src="${imageTag}" alt="">
+        <p>Mon text</p>
         
         </div>
         <button class="lighbox_close">Fermer</button>

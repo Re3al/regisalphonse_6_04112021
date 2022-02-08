@@ -33,13 +33,12 @@ async function displayDataCurrentUser()
 let contactArtist = document.querySelector("header h2");
 contactArtist.innerHTML = "Contactez moi " + currentPhotographers[0].name;
 }
+//affiche un encart avec la populairité et le prix journalier de l'artiste
 async function displayCurrentDataSection()
 {
     let allLikesarray = [];
     mediasData.forEach((data)=>
     {
-        
-        console.log(data)
         allLikesarray.push(data.likes);
     });
     let allLikes = allLikesarray.reduce((accumulator,currentValue)=>{
@@ -53,13 +52,11 @@ async function displayCurrentDataSection()
     <p>${currentPhotographers[0].price} €/ jour</p>
     `;
     document.body.appendChild(dataSection);
-    
 }
 async function displayData(data) {
     //recupere la div contenant les cartes de photographe
     const photographersSection = document.querySelector(".all-posts");
-
-   
+    photographersSection.setAttribute("aria-label", "main");
     if(data)
     {
         medias = data;
