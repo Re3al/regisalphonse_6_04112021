@@ -22,12 +22,7 @@ class LightBox {
         document.body.appendChild(this.element);
         this.closeModal();
         this.imageTag = imageTag;
-    }
-    getCurrentImage()
-    {   
-        this.imageTag = imageTag;
-        console.log(imageTag)
-        const currentImage = jsonData.media.filter((el)=>{el.title == 623534343 })[0]
+        this.getCurrentImage()
     }
 
     buildDOM(imageTag)
@@ -39,7 +34,7 @@ class LightBox {
         <button class="lighbox_previous">Précédent</button>
         <div class="lighbox_container">
         <img src="${imageTag}" alt="">
-        <p>Mon text</p>
+        <p id="currentTitleImage">Mon text</p>
         
         </div>
         <button class="lighbox_close">Fermer</button>
@@ -52,6 +47,15 @@ class LightBox {
         //dom.querySelector(".lighbox_previous").addEventListener('click', this.previous.bind(this.images));
         return dom;
     }
+    getCurrentImage()
+    {   
+        let currentImageTag = this.imageTag.replace("assets/photographers/Mimi/","");
+        let currentImage = currentImageTag.replace(".jpg","");
+        document.getElementById("currentTitleImage").innerHTML = currentImage;
+
+        //const currentImage = jsonData.media.filter((el)=>{el.title == 623534343 })[0]
+    }
+
     loadImage(imageTag)
     {
         this.imageTag = imageTag;
