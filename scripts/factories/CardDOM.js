@@ -100,9 +100,9 @@ class CardDOM
           const img = document.createElement( 'img' );
           img.setAttribute("src", picture);
           img.setAttribute("aria-label", data._image);
-          img.setAttribute("title", data._title)
+          img.setAttribute("title", data._title);
           img.classList.add("artist-thumbnail");
-            article.appendChild(img);
+          article.appendChild(img);
    
           let imgAricle = data.image;
         }
@@ -130,21 +130,23 @@ class CardDOM
         h2.appendChild(a);
         const h3 = document.createElement( 'h3' );
         const likes  = document.createElement( 'p' );
-        let likesImg = document.createElement('img');
-        likesImg.src ="/assets/images/heart.svg"
-        likesImg.classList.add('artist-likes')
+        let likesImg = document.createElement('i');
+        //likesImg.src ="/assets/images/heart.svg"
+        likesImg.classList.add('artist-likes');
+        likesImg.classList.add('far');
+        likesImg.classList.add('fa-heart');
+        likesImg.dataset.identifier = data._id;
         h3.textContent = data._city;
         likes.textContent = data._likes;
+        likes.classList.add('prices');
+        likes.dataset.identifier = data._id;
         article.classList.add("artist-post");
         article.setAttribute("aria-label", "Artwork of the artist");
         article.appendChild(h2);
         article.appendChild(h3);
         article.appendChild(likes);
         likes.appendChild(likesImg);
-
-      
-
-                
+            
             return (article);
         }
 

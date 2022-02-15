@@ -13,6 +13,8 @@ const mediasData = jsonData.media.filter((el)=>{
     return el.photographerId == artistId;
 })
 
+
+
 const currentPhotographers = jsonData.photographers.filter((el)=>{
     return el.id == artistId;
 });
@@ -34,8 +36,7 @@ let contactArtist = document.querySelector("header h2");
 contactArtist.innerHTML = "Contactez moi " + currentPhotographers[0].name;
 }
 //affiche un encart avec la populairité et le prix journalier de l'artiste
-async function displayCurrentDataSection()
-{
+
     let allLikesarray = [];
     mediasData.forEach((data)=>
     {
@@ -44,7 +45,8 @@ async function displayCurrentDataSection()
     let allLikes = allLikesarray.reduce((accumulator,currentValue)=>{
         return accumulator + currentValue;
     },0);
-    
+async function displayCurrentDataSection()
+{    
     let dataSection = document.createElement('div');
     dataSection.classList.add('datasection');
     dataSection.innerHTML = `
@@ -139,6 +141,79 @@ async function init() {
         LightBox.init();
         
     });
+ 
+
+    const allLikesTags = document.getElementsByClassName('artist-likes');
+    async function updateLikes(update)
+    {
+        if(update = "up")
+        {
+            //recuperer l'objet en fonctin de l'id du like => id de l'objet 
+
+            //ajouter un parametre 
+
+        }
+    }
+
+for(let el of allLikesTags){
+    let clicktest = false;
+    console.log(clicktest)
+    el.addEventListener("click",(e)=>{
+
+            //alert('open')
+  
+            
+            //console.log('non clické')
+            //console.log('clické')
+            //let classLessHeart = document.querySelector('i');
+            //let currentHeart = document.querySelector('.far');
+            e.target.classList.toggle('far');
+            e.target.classList.toggle('fas');
+
+            const currentMedias = medias.filter((el)=>{
+                return el.id == 235234343;
+            });
+            let allMediaPrice = document.getElementsByClassName('prices');
+            allMediaFilteredPrice = Array.from(allMediaPrice)
+            .filter(filteredprice => filteredprice.dataset.identifier == 235234343)
+            /*let currentMediaPrice = allMediaPrice.forEach((el)=>{
+                allMediaPrice.filter((el)=>{
+                return el.dataset.identifier == 235234343;
+            });
+            })*/
+            if(e.target.classList.contains("far"))
+            {
+ 
+                console.log('clické')
+            //au clic le coeur se remplit 
+            e.classList.replace('far', "fas");
+            for (currentMediaPrice of allMediaFilteredPrice)
+            {
+                currentMediaPrice.innerHTML = currentMedias[0].likes +1;
+            }
+            //document.getElementsByClassName('prices')[1].innerHTML = currentMedias[0].likes +1;
+            document.getElementsByClassName('prices')[1].innerHTML = 102;
+            alert("inc");
+
+            
+            
+            //le nombre de coeur global monte de 1
+            }
+            else{
+                e.classList.replace('fas', "far");
+                console.log('déclické')
+                alert("desc");
+
+                
+            }
+            
+
+            //au clic le coeur se remplit 
+
+            //le nombre de coeur global monte de 1
+            
+        })
+    }
     displayCurrentDataSection();
 }
 
