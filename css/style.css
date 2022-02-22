@@ -86,6 +86,10 @@ h1 {
     text-decoration: none;
     font-size: 11px;
 }
+.activedFilter{
+    background-color: #901C1C;
+    color: #fff!important;
+}
 article h2, article h3, article p{
     margin: 3px auto;
 }
@@ -106,6 +110,13 @@ article p:last-child{
 .artist-post
 {
     width: 30%;
+}
+.artist-post div
+{
+    width: 238px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
 }
 
 select, option{

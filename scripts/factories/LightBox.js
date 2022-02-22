@@ -52,6 +52,7 @@ class LightBox {
         let currentImageTag = this.imageTag.replace("assets/photographers/Mimi/","");
         let currentImage = currentImageTag.replace(".jpg","");
         document.getElementById("currentTitleImage").innerHTML = currentImage;
+        
 
         //const currentImage = jsonData.media.filter((el)=>{el.title == 623534343 })[0]
     }

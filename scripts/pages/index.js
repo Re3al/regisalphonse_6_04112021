@@ -50,8 +50,13 @@
         //filters
         document.querySelectorAll(".home_filters a").forEach(tagDOM=>{
             tagDOM.addEventListener("click", (e)=>{
+                if(tagDOM.classList.contains('activedFilter')){
+                    this.classList.remove('activedFilter');
+                }
+                tagDOM.classList.add('activedFilter');
                 let container = document.getElementsByClassName("photographer_section")[0];
                   container.innerHTML = "";
+                  
     
                   let tag = e.target.textContent.replace('#','').toLowerCase();
                   //let tag = tagElement.replace('#','')

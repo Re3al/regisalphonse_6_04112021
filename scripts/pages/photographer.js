@@ -1,14 +1,10 @@
 //Mettre le code JavaScript lié à la page photographer.html
 
 
-
-
 //recupere l'id de la page 
 const pageId = new URLSearchParams(window.location.search);
 const artistId = pageId.get('id');
-
 const photographerHeader = document.querySelector(".photograph-header");
-
 const mediasData = jsonData.media.filter((el)=>{
     return el.photographerId == artistId;
 })
@@ -25,15 +21,13 @@ let medias = [];
 async function displayDataCurrentUser()
 {
     const currentPhotographer = currentPhotographers[0];
-
     const currenttemplateCard = new CardDOM(currentPhotographer); 
-
     currenttemplateCard.getCurrentUserCardDOM(currentPhotographer);
 
 
     //modal de contact 
 let contactArtist = document.querySelector("header h2");
-contactArtist.innerHTML = "Contactez moi " + currentPhotographers[0].name;
+contactArtist.innerHTML = "Contactez moi <br>" + currentPhotographers[0].name;
 }
 //affiche un encart avec la populairité et le prix journalier de l'artiste
 
@@ -103,16 +97,12 @@ async function init() {
     let articles = document.getElementsByClassName('artist-post');
     let desc = false;
 
-
     function sortArrayBy(array, sort,desc)
     {
         array.sort(function (a,b) {
             if(a[sort] < b[sort]) return -1;
-
-
             if(a[sort] > b[sort]) return 1;
-            return 0;
-            
+            return 0; 
         });
         if(desc) array.reverse();
         return array;
@@ -160,13 +150,6 @@ for(let el of allLikesTags){
     console.log(clicktest)
     el.addEventListener("click",(e)=>{
 
-            //alert('open')
-  
-            
-            //console.log('non clické')
-            //console.log('clické')
-            //let classLessHeart = document.querySelector('i');
-            //let currentHeart = document.querySelector('.far');
             e.target.classList.toggle('far');
             e.target.classList.toggle('fas');
 
@@ -176,11 +159,7 @@ for(let el of allLikesTags){
             let allMediaPrice = document.getElementsByClassName('prices');
             allMediaFilteredPrice = Array.from(allMediaPrice)
             .filter(filteredprice => filteredprice.dataset.identifier == 235234343)
-            /*let currentMediaPrice = allMediaPrice.forEach((el)=>{
-                allMediaPrice.filter((el)=>{
-                return el.dataset.identifier == 235234343;
-            });
-            })*/
+
             if(e.target.classList.contains("far"))
             {
  
@@ -191,20 +170,13 @@ for(let el of allLikesTags){
             {
                 currentMediaPrice.innerHTML = currentMedias[0].likes +1;
             }
-            //document.getElementsByClassName('prices')[1].innerHTML = currentMedias[0].likes +1;
-            document.getElementsByClassName('prices')[1].innerHTML = 102;
-            alert("inc");
-
-            
-            
+            document.getElementsByClassName('prices')[1].innerHTML = currentMedias[0].likes +1;
+            //document.getElementsByClassName('prices')[1].innerHTML = 102;       
             //le nombre de coeur global monte de 1
             }
             else{
                 e.classList.replace('fas', "far");
-                console.log('déclické')
-                alert("desc");
-
-                
+                console.log('déclické')                
             }
             
 

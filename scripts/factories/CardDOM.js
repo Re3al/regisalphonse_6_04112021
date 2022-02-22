@@ -126,9 +126,10 @@ class CardDOM
         const h2 = document.createElement( 'h2' );
         const a = document.createElement( 'a' );
         a.setAttribute("href", "photographer.html?id=" + data._id); 
-        a.innerHTML = data._title;     
+        a.innerHTML = data._title;  
+        const mediaDiv = document.createElement('div');   
         h2.appendChild(a);
-        const h3 = document.createElement( 'h3' );
+        const h3 = document.createElement( 'p' );
         const likes  = document.createElement( 'p' );
         let likesImg = document.createElement('i');
         //likesImg.src ="/assets/images/heart.svg"
@@ -142,9 +143,10 @@ class CardDOM
         likes.dataset.identifier = data._id;
         article.classList.add("artist-post");
         article.setAttribute("aria-label", "Artwork of the artist");
-        article.appendChild(h2);
+        article.appendChild(mediaDiv);
+        mediaDiv.appendChild(h2);
+        mediaDiv.appendChild(likes);
         article.appendChild(h3);
-        article.appendChild(likes);
         likes.appendChild(likesImg);
             
             return (article);
