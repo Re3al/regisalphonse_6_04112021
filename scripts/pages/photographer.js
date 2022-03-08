@@ -44,7 +44,7 @@ async function displayCurrentDataSection()
     let dataSection = document.createElement('div');
     dataSection.classList.add('datasection');
     dataSection.innerHTML = `
-    <p>${allLikes}<img class="artist-likes" src="/assets/images/heart.svg""></p>
+    <p class"alllikes">${allLikes}</p><img class="artist-likes" src="/assets/images/heart.svg"">
     <p>${currentPhotographers[0].price} €/ jour</p>
     `;
     document.body.appendChild(dataSection);
@@ -146,37 +146,42 @@ async function init() {
     }
 
 for(let el of allLikesTags){
-    let clicktest = false;
-    console.log(clicktest)
     el.addEventListener("click",(e)=>{
 
             e.target.classList.toggle('far');
             e.target.classList.toggle('fas');
+            let currentLikeCount = document.getElementsByClassName('likes')[1];
+            console.log(allLikes)
+            let allLikesText = document.querySelector(".datasection p");
 
-            const currentMedias = medias.filter((el)=>{
-                return el.id == 235234343;
+            const currentMediaIndex = medias.findIndex((el)=>{
+                return el.id == e.target.dataset.identifier;
             });
-            let allMediaPrice = document.getElementsByClassName('prices');
+            let allMediaPrice = document.getElementsByClassName('likes');
             allMediaFilteredPrice = Array.from(allMediaPrice)
-            .filter(filteredprice => filteredprice.dataset.identifier == 235234343)
+            .filter(filteredprice => filteredprice.dataset.identifier == e.target.dataset.identifier)
 
-            if(e.target.classList.contains("far"))
+            if(e.target.classList.contains("fas"))
             {
- 
-                console.log('clické')
-            //au clic le coeur se remplit 
-            e.classList.replace('far', "fas");
-            for (currentMediaPrice of allMediaFilteredPrice)
-            {
-                currentMediaPrice.innerHTML = currentMedias[0].likes +1;
-            }
-            document.getElementsByClassName('prices')[1].innerHTML = currentMedias[0].likes +1;
-            //document.getElementsByClassName('prices')[1].innerHTML = 102;       
+                console.log('clické')  
+                //au clic le coeur incrémentation de 1 like
+                let likesCount = medias[currentMediaIndex].likes+1;
+                allLikesText.innerHTML = allLikes++;
+
+                console.log(likesCount);
+            
+            
+                currentLikeCount.innerHTML = likesCount;
+            //document.getElementsByClassName('likes')[1].innerHTML = 102;       
             //le nombre de coeur global monte de 1
             }
             else{
-                e.classList.replace('fas', "far");
-                console.log('déclické')                
+            //    e.target.classList.replace('fas', "far");
+                console.log('déclické')      
+                let likesCount = medias[currentMediaIndex].likes;
+                console.log(likesCount);    
+                currentLikeCount.innerHTML = likesCount;  
+                allLikesText.innerHTML = allLikes--;   
             }
             
 

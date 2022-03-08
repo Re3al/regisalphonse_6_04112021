@@ -29,7 +29,21 @@ class LightBox {
     {
         const dom = document.createElement('div');
         dom.classList.add('lightboxModal');
+        if(imageTag.contains('.mp4')){
+            dom.innerHTML = `
+        <button class="lighbox_previous">Précédent</button>
+        <div class="lighbox_container">
+        <video alt="">
+        <source src="${imageTag}"  ></source>
+        </video>
+        <p id="currentTitleImage">Mon text</p>
         
+        </div>
+        <button class="lighbox_close">Fermer</button>
+        <button class="lighbox_next">Suivant</button>
+        `;
+        }
+       
         dom.innerHTML = `
         <button class="lighbox_previous">Précédent</button>
         <div class="lighbox_container">
@@ -40,7 +54,9 @@ class LightBox {
         <button class="lighbox_close">Fermer</button>
         <button class="lighbox_next">Suivant</button>
         `;
+
         dom.style.display = "flex";
+        console.log(imageTag);
         console.log(medias)
         dom.querySelector(".lighbox_next").addEventListener('click', this.next.bind(this));
         dom.querySelector(".lighbox_previous").addEventListener('click', this.previous.bind(this));

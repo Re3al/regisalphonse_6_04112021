@@ -112,6 +112,7 @@ class CardDOM
           
           const videotag = document.createElement( 'video' );
           videotag.classList.add("video_artwork");
+          videotag.classList.add("artist-thumbnail");
           videotag.setAttribute("aria-label", data._video);
           videotag.setAttribute("title", data._title)
           const videosource = document.createElement( 'source' );
@@ -139,7 +140,7 @@ class CardDOM
         likesImg.dataset.identifier = data._id;
         h3.textContent = data._city;
         likes.textContent = data._likes;
-        likes.classList.add('prices');
+        likes.classList.add('likes');
         likes.dataset.identifier = data._id;
         article.classList.add("artist-post");
         article.setAttribute("aria-label", "Artwork of the artist");
@@ -147,7 +148,7 @@ class CardDOM
         mediaDiv.appendChild(h2);
         mediaDiv.appendChild(likes);
         article.appendChild(h3);
-        likes.appendChild(likesImg);
+        article.appendChild(likesImg);
             
             return (article);
         }

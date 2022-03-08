@@ -42,6 +42,11 @@
         });
             //console.log(photographers[0].tags.find(l => l =="travel"));
     };
+    async function reloadIndexDom(){
+        let container = document.getElementsByClassName("photographer_section")[0];
+        container.innerHTML = "";
+        displayData();
+    }
 
     async function init() {
         // Récupère les datas des photographes
@@ -51,7 +56,11 @@
         document.querySelectorAll(".home_filters a").forEach(tagDOM=>{
             tagDOM.addEventListener("click", (e)=>{
                 if(tagDOM.classList.contains('activedFilter')){
-                    this.classList.remove('activedFilter');
+                    reloadIndexDom();
+                    document.getElementsByClassName("activedFilter")[0].addEventListener("click",(e)=>{
+                        reloadIndexDom();
+                        e.currentTarget.classList.remove();
+                    })
                 }
                 tagDOM.classList.add('activedFilter');
                 let container = document.getElementsByClassName("photographer_section")[0];
